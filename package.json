@@ -1,0 +1,16 @@
+{
+  "name": "wdd2---11",
+  "version": "1.0.0",
+  "description": "WDD2 Scaffold Project",
+  "license": "ISC",
+  "author": "John Christian Moreno",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
