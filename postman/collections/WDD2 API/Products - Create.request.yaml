@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/products"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "name": "Sample Item",
+      "category": "General",
+      "price": 199.99,
+      "description": "Test product",
+      "image": "https://via.placeholder.com/300",
+      "countInStock": 10
+    }
+order: 3000

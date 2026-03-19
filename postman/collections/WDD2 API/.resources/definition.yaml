@@ -1,0 +1,6 @@
+$kind: collection
+description: Postman collection for WDD2 finals backend endpoints.
+variables:
+  baseUrl: http://localhost:3000/api/v1
+  userId: ""
+  productId: ""

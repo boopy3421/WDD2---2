@@ -1,15 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Cart from './pages/Cart';
+import Login from './pages/login';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Login></Login>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 

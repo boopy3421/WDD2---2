@@ -28,6 +28,7 @@ a {
   color: var(--primary-blue);
   text-decoration: none;
 }
+
 a:hover {
   color: var(--hover-blue);
   text-decoration: underline;
@@ -35,16 +36,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-width: 320px;
-  min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue) 0%,
-    var(--secondary-green) 100%
-  );
+  min-height: 100dvh;
+  background: linear-gradient(135deg,
+      var(--primary-blue) 0%,
+      var(--secondary-green) 100%);
 }
 
 #root {
@@ -62,19 +58,22 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inhervar(--primary-blue);
+  font-family: inherit;
   color: white;
   cursor: pointer;
   transition: background-color 0.25s;
 }
+
 button:hover {
   background-color: var(--hover-blue);
 }
+
 button:focus,
 button:focus-visible {
   outline: 2px solid var(--primary-blue);
   outline-offset: 2px;
 }
+
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;

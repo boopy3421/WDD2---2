@@ -1,0 +1,12 @@
+# Use this workspace to collaborate
+workspace:
+  id: e02da75d-1384-44c5-8810-9e8b30b6f2ed
+
+localResources:
+  collections:
+    - ..\WDD2\activities\backend\postman\WDD2.postman_collection.json
+  environments:
+    - ..\WDD2\activities\backend\postman\WDD2.local.postman_environment.json
+cloudResources:
+  collections:
+    ..\postman\collections\WDD2 API: 083c4b0d-bd5d-42c7-a49e-2f1af6007fb8
