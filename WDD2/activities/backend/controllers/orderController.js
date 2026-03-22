@@ -1,4 +1,5 @@
 import Order from '../models/Order.js';
+import Product from '../models/Product.js';
 
 export const createOrder = async (req, res) => {
     try {
@@ -6,6 +7,31 @@ export const createOrder = async (req, res) => {
 
         if (!user || !Array.isArray(items) || items.length === 0) {
             return res.status(400).json({ message: 'User and at least one item are required.' });
+        }
+
+        // Validate stock availability for all items before processing
+        for (const item of items) {
+            const product = await Product.findById(item.product);
+
+            if (!product) {
+                return res.status(404).json({ message: `Product not found: ${item.product}` });
+            }
+
+            const qty = Number(item.quantity || 0);
+
+            if (product.countInStock < qty) {
+                return res.status(400).json({
+                    message: `Insufficient stock for "${product.name}". Available: ${product.countInStock}, Requested: ${qty}`,
+                });
+            }
+        }
+
+        // Decrement stock for each item
+        for (const item of items) {
+            const qty = Number(item.quantity || 0);
+            await Product.findByIdAndUpdate(item.product, {
+                $inc: { countInStock: -qty },
+            });
         }
 
         const totalPrice = items.reduce((sum, item) => {
